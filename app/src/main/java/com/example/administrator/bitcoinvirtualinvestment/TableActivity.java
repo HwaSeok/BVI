@@ -27,14 +27,13 @@ import okhttp3.Response;
 public class TableActivity extends AppCompatActivity {
     public static final String ENDPOINT = "https://api.coinhills.com/v1/cspa/btc/";
     private OkHttpClient okHttpClient = new OkHttpClient();
-    private TextView btc;
+    private TextView t1;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.table);
-        btc = (TextView) findViewById(R.id.textView3);
+        t1 = (TextView) findViewById(R.id.textView1);
         Button button1=(Button)findViewById(R.id.button);
-        Button button2=(Button)findViewById(R.id.button2);
         Button button3=(Button)findViewById(R.id.button3);
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +107,7 @@ public class TableActivity extends AppCompatActivity {
 
 
 
-            btc.setText(builder.toString());
+            t1.setText(builder.toString());
 
         } catch (Exception e) {
 
