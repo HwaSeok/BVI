@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this,TableActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this,TableActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {

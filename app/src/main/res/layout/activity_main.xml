@@ -275,6 +275,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/edit"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:orientation="horizontal">
@@ -294,6 +295,15 @@
             android:layout_weight="1"
             android:text="초기자금 설정" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/edit"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="2pt"
+        android:text="*비트코인 거래창을 눌러야 현재시세가 적용됩니다." />
 
 
 </RelativeLayout>
