@@ -236,8 +236,30 @@ public class TableActivity extends AppCompatActivity {
         t[12].setText(load("LTC24")+"%");
     }
 
-    void onClick1(View v){
-        Toast.makeText(getApplicationContext(), "출력할 문자열", Toast.LENGTH_SHORT).show();
+    void onClick(View v){
+        Intent intent = new Intent(TableActivity.this, Exchange.class);
+        switch (v.getId()){
+            case R.id.table1:
+                intent.putExtra("i",1);
+                break;
+            case R.id.table2:
+                intent.putExtra("i",2);
+                break;
+            case R.id.table3:
+                intent.putExtra("i",3);
+                break;
+            case R.id.table4:
+                intent.putExtra("i",4);
+                break;
+            case R.id.table5:
+                intent.putExtra("i",5);
+                break;
+            case R.id.table6:
+                intent.putExtra("i",6);
+                break;
+        }
+
+        startActivity(intent);
     }
 
 }

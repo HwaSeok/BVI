@@ -50,14 +50,15 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+
         android:padding="2pt">
 
         <TableRow
+            android:id="@+id/table1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="onClick1"
-            >
+            android:onClick="onClick">
 
             <TextView
                 android:id="@+id/textView"
@@ -91,10 +92,10 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/table2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
-            >
+            android:onClick="onClick">
 
             <TextView
                 android:id="@+id/textView"
@@ -128,10 +129,10 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/table3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            >
+            android:onClick="onClick"
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView"
@@ -165,10 +166,10 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/table4"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            >
+            android:onClick="onClick"
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView"
@@ -202,10 +203,10 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/table5"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            >
+            android:onClick="onClick"
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView"
@@ -239,10 +240,10 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/table6"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            >
+            android:onClick="onClick"
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView"

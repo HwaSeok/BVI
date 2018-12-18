@@ -246,7 +246,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="총 자산 수익률" />
+            android:text="총 자산 수익률"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -259,7 +260,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="20000$" />
+                android:text="20000$"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/textView21"
@@ -267,7 +269,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="200%" />
+                android:text="200%"
+                android:textSize="24sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -276,9 +279,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edit"
+        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:orientation="horizontal">
+        android:layout_alignParentStart="true">
 
         <EditText
             android:id="@+id/editText"
@@ -286,7 +289,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="numberSigned" />
 
         <Button
             android:id="@+id/button4"

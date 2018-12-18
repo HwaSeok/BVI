@@ -2,12 +2,15 @@ package com.example.administrator.bitcoinvirtualinvestment;
 
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -86,9 +89,17 @@ public class MainActivity extends AppCompatActivity {
                 save("moneyall",money);
                 save("firstmoney",money);
                 recentview();
+                Toast.makeText(getApplicationContext(), "설정완료.", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+    public void onResume() {
+        super.onResume();
+        recentview();
+    }
+
+
 
     protected void save(String word, double number){
         try{
@@ -125,6 +136,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void recentview(){
+        moneymath();
+
         double nowmoney = 0;
         double percent = 0;
         double moneyall = Double.parseDouble(load("moneyall"));
@@ -132,18 +145,41 @@ public class MainActivity extends AppCompatActivity {
         nowmoney = moneyall - firstmoney;
         percent = (moneyall/firstmoney-1)*100;
 
-        t2.setText(load("money")+" $");
+        double money;
+        String money2,money3,money4,percent2;
+        money = Double.parseDouble(load("money"));
+        money2 = String.format("%.2f",money);
+        money = Double.parseDouble(load("moneyall"));
+        money3 = String.format("%.2f",money);
+        money4 = String.format("%.2f",nowmoney);
+        percent2 = String.format("%.2f",percent);
+
+
+
+        t2.setText(money2+" $");
         t4.setText(load("BTC"));
         t6.setText(load("BCH"));
         t8.setText(load("ETH"));
         t10.setText(load("ETC"));
         t12.setText(load("XRP"));
         t14.setText(load("LTC"));
-        t16.setText(load("moneyall")+" $");
-        t20.setText(nowmoney+" $");
-        t21.setText(percent+"%");
+        t16.setText(money3+" $");
+        t20.setText(money4+" $");
+        t21.setText(percent2+"%");
     }
 
-
+    void moneymath(){
+        double btc,bch,eth,etc,xrp,ltc,money;
+        double result = 0;
+        money = Double.parseDouble(load("money"));
+        btc = Double.parseDouble(load("BTC")) * Double.parseDouble(load("BTCp"));
+        bch = Double.parseDouble(load("BCH")) * Double.parseDouble(load("BCHp"));
+        eth = Double.parseDouble(load("ETH")) * Double.parseDouble(load("ETHp"));
+        etc = Double.parseDouble(load("ETC")) * Double.parseDouble(load("ETCp"));
+        xrp = Double.parseDouble(load("XRP")) * Double.parseDouble(load("XRPp"));
+        ltc = Double.parseDouble(load("LTC")) * Double.parseDouble(load("LTCp"));
+        result = btc + bch + eth + etc + xrp + ltc + money;
+        save("moneyall",result);
+    }
 
 }
