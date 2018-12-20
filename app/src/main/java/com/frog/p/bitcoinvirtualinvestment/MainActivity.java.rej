@@ -1,4 +1,4 @@
-diff a/app/src/main/java/com/example/administrator/bitcoinvirtualinvestment/MainActivity.java b/app/src/main/java/com/example/administrator/bitcoinvirtualinvestment/MainActivity.java	(rejected hunks)
+diff a/app/src/main/java/com/frog/p/bitcoinvirtualinvestment/MainActivity.java b/app/src/main/java/com/frog/p/bitcoinvirtualinvestment/MainActivity.java	(rejected hunks)
 @@ -2,12 +2,15 @@
  
  

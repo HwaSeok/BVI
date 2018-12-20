@@ -4,7 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.administrator.bitcoinvirtualinvestment.MainActivity">
+    tools:context="com.frog.p.bitcoinvirtualinvestment.MainActivity">
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-">
+    </com.google.android.gms.ads.AdView>
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -25,7 +36,7 @@
             android:isScrollContainer="false"
             android:nestedScrollingEnabled="false"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="2">
 
             <Button
                 android:id="@+id/button"
@@ -41,12 +52,6 @@
                 android:layout_weight="1"
                 android:text="비트코인 거래" />
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="도표확인" />
         </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
@@ -280,7 +285,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/edit"
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/adView"
         android:layout_alignParentStart="true">
 
         <EditText

@@ -1,4 +1,4 @@
-package com.example.administrator.bitcoinvirtualinvestment;
+package com.frog.p.bitcoinvirtualinvestment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.frog.p.bitcoinvirtualinvestment.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;

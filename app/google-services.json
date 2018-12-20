@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "54275441772-ad6bgcis1auugp02jufgbqpistcvv9up.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.administrator.bitcoinvirtualinvestment",
+            "certificate_hash": "1807a43b7ca78d3cfca3b8b6206c98729a97c16d"
+          }
+        },
+        {
           "client_id": "54275441772-nit5g862e1g4oq6hv724utidl867msbv.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54275441772-nit5g862e1g4oq6hv724utidl867msbv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

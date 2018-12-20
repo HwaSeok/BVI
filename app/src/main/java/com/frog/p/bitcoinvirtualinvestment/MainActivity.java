@@ -1,9 +1,7 @@
-package com.example.administrator.bitcoinvirtualinvestment;
+package com.frog.p.bitcoinvirtualinvestment;
 
 
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,6 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.frog.p.bitcoinvirtualinvestment.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView t21;
     private EditText e;
 
+    private AdView mAdView;
 
 
     @Override
@@ -56,6 +60,12 @@ public class MainActivity extends AppCompatActivity {
         t20 = (TextView)findViewById(R.id.textView20);
         t21 = (TextView)findViewById(R.id.textView21);
         e = (EditText)findViewById(R.id.editText);
+
+        MobileAds.initialize(this, "ca-app-pub-");
+
+        mAdView = (AdView)findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         String dirPath = getFilesDir().getAbsolutePath();
         File file = new File(dirPath+"/mfile.txt");
@@ -79,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Button button2=(Button)findViewById(R.id.button2);
-        Button button3=(Button)findViewById(R.id.button3);
+
         Button button4=(Button)findViewById(R.id.button4);
 
         button2.setOnClickListener(new View.OnClickListener() {
@@ -90,14 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,TableActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "com.example.administrator.bitcoinvirtualinvestment"
+        applicationId "com.frog.p.bitcoinvirtualinvestment"
         minSdkVersion 23
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -29,4 +29,6 @@ dependencies {
     implementation 'junit:junit:4.12'
 
     implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+
+    implementation 'com.google.firebase:firebase-ads:16.0.1'
 }

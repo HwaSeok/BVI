@@ -1,4 +1,4 @@
-package com.example.administrator.bitcoinvirtualinvestment;
+package com.frog.p.bitcoinvirtualinvestment;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,4 +1,4 @@
-package com.example.administrator.bitcoinvirtualinvestment;
+package com.frog.p.bitcoinvirtualinvestment;
 
 
 
@@ -7,16 +7,18 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.frog.p.bitcoinvirtualinvestment.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -35,13 +37,21 @@ public class TableActivity extends AppCompatActivity {
 
     TextView[] t = new TextView[13];
 
+    private AdView mAdView;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.table);
 
+        MobileAds.initialize(this, "ca-app-pub-");
+
+        mAdView = (AdView)findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         for (int i = 1; i < 13; i++) {
             int id = getResources().getIdentifier("textView" + i,
-                    "id", "com.example.administrator.bitcoinvirtualinvestment");
+                    "id", "com.frog.p.bitcoinvirtualinvestment");
             t[i] = (TextView)findViewById(id);
         }
 
@@ -53,7 +63,6 @@ public class TableActivity extends AppCompatActivity {
         ENDPOINT[5] = "https://api.coinhills.com/v1/cspa/ltc/";
 
         Button button1=(Button)findViewById(R.id.button);
-        Button button3=(Button)findViewById(R.id.button3);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,14 +72,7 @@ public class TableActivity extends AppCompatActivity {
                 finish();
             }
         });
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(TableActivity.this,TableActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+
 
         recentview();
         mHandler.sendEmptyMessage(0);
