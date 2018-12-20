@@ -1,0 +1,1 @@
+{"BTC": 0,"BTCp": 0,"BTC24": 0,"BCH": 0,"BCHp": 0,"BCH24": 0, "ETH": 0,"ETHp": 0,"ETH24": 0, "ETC": 0,"ETCp": 0,"ETC24": 0, "XRP": 0,"XRPp": 0,"XRP24": 0, "LTC": 0,"LTCp": 0,"LTC24": 0,"money":0,"firstmoney":0,"moneyall":0}

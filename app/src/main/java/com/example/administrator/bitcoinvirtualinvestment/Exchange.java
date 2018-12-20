@@ -112,13 +112,13 @@ public class Exchange extends AppCompatActivity {
 
     protected void save(String word, double number){
         try{
-            FileReader fr = new FileReader(getFilesDir()+"mfile.txt");
+            FileReader fr = new FileReader(getFilesDir()+"/mfile.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
             JSONObject obj = new JSONObject(line);
             obj.put(word , number);
             String jsonstr = obj.toString();
-            FileWriter fw = new FileWriter(getFilesDir()+"mfile.txt");
+            FileWriter fw = new FileWriter(getFilesDir()+"/mfile.txt");
             fw.write(jsonstr);
             fw.close();
         }catch (IOException e){
@@ -130,7 +130,7 @@ public class Exchange extends AppCompatActivity {
 
     protected  String load(String word){
         try{
-            FileReader fr = new FileReader(getFilesDir()+"mfile.txt");
+            FileReader fr = new FileReader(getFilesDir()+"/mfile.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
             JSONObject obj = new JSONObject(line);

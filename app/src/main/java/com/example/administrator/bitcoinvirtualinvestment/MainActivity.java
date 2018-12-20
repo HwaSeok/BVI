@@ -16,9 +16,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView t21;
     private EditText e;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +56,24 @@ public class MainActivity extends AppCompatActivity {
         t20 = (TextView)findViewById(R.id.textView20);
         t21 = (TextView)findViewById(R.id.textView21);
         e = (EditText)findViewById(R.id.editText);
+
+        String dirPath = getFilesDir().getAbsolutePath();
+        File file = new File(dirPath+"/mfile.txt");
+        if(!file.exists()){
+            try{
+                InputStream in = getResources().openRawResource(R.raw.filesmfile);
+                InputStreamReader isr = new InputStreamReader(in,"utf-8");
+                BufferedReader buffer = new BufferedReader(isr);
+                String line = buffer.readLine();
+
+                File savefile = new File(dirPath+"/mfile.txt");
+                FileOutputStream fos = new FileOutputStream(savefile);
+                fos.write(line.getBytes());
+                fos.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
 
         recentview();
 
@@ -103,13 +127,13 @@ public class MainActivity extends AppCompatActivity {
 
     protected void save(String word, double number){
         try{
-            FileReader fr = new FileReader(getFilesDir()+"mfile.txt");
+            FileReader fr = new FileReader(getFilesDir()+"/mfile.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
             JSONObject obj = new JSONObject(line);
             obj.put(word , number);
             String jsonstr = obj.toString();
-            FileWriter fw = new FileWriter(getFilesDir()+"mfile.txt");
+            FileWriter fw = new FileWriter(getFilesDir()+"/mfile.txt");
             fw.write(jsonstr);
             fw.close();
         }catch (IOException e){
@@ -120,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
     }
     protected  String load(String word){
         try{
-            FileReader fr = new FileReader(getFilesDir()+"mfile.txt");
+            FileReader fr = new FileReader(getFilesDir()+"/mfile.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
             JSONObject obj = new JSONObject(line);
@@ -144,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         double firstmoney = Double.parseDouble(load("firstmoney"));
         nowmoney = moneyall - firstmoney;
         percent = (moneyall/firstmoney-1)*100;
-
+        if(moneyall==firstmoney) percent = 0;
         double money;
         String money2,money3,money4,percent2;
         money = Double.parseDouble(load("money"));
