@@ -100,7 +100,7 @@ public class TableActivity extends AppCompatActivity {
         t5.setOnClickListener(onClickListener);
         t6.setOnClickListener(onClickListener);
 
-        MobileAds.initialize(this, "ca-app-pub-6204403446551835~6107468962");
+        MobileAds.initialize(this, "ca-app-pub-");
 
         mAdView = (AdView)findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
