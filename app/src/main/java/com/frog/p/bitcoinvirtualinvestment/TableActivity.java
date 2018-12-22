@@ -2,13 +2,16 @@ package com.frog.p.bitcoinvirtualinvestment;
 
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +34,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+
+
 public class TableActivity extends AppCompatActivity {
     public static final String[] ENDPOINT = new String[6];
     private OkHttpClient okHttpClient = new OkHttpClient();
@@ -39,11 +44,63 @@ public class TableActivity extends AppCompatActivity {
 
     private AdView mAdView;
 
+    TableRow t1;
+    TableRow t2;
+    TableRow t3;
+    TableRow t4;
+    TableRow t5;
+    TableRow t6;
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.table);
 
-        MobileAds.initialize(this, "ca-app-pub-");
+
+
+        t1 = (TableRow)findViewById(R.id.table1);
+        t2 = (TableRow)findViewById(R.id.table2);
+        t3 = (TableRow)findViewById(R.id.table3);
+        t4 = (TableRow)findViewById(R.id.table4);
+        t5 = (TableRow)findViewById(R.id.table5);
+        t6 = (TableRow)findViewById(R.id.table6);
+
+        TableRow.OnClickListener onClickListener = new TableRow.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(TableActivity.this, Exchange.class);
+                switch (v.getId()){
+                    case R.id.table1:
+                        intent.putExtra("i",1);
+                        break;
+                    case R.id.table2:
+                        intent.putExtra("i",2);
+                        break;
+                    case R.id.table3:
+                        intent.putExtra("i",3);
+                        break;
+                    case R.id.table4:
+                        intent.putExtra("i",4);
+                        break;
+                    case R.id.table5:
+                        intent.putExtra("i",5);
+                        break;
+                    case R.id.table6:
+                        intent.putExtra("i",6);
+                        break;
+                }
+
+                startActivity(intent);
+            }
+        };
+
+        t1.setOnClickListener(onClickListener);
+        t2.setOnClickListener(onClickListener);
+        t3.setOnClickListener(onClickListener);
+        t4.setOnClickListener(onClickListener);
+        t5.setOnClickListener(onClickListener);
+        t6.setOnClickListener(onClickListener);
+
+        MobileAds.initialize(this, "ca-app-pub-6204403446551835~6107468962");
 
         mAdView = (AdView)findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -82,7 +139,7 @@ public class TableActivity extends AppCompatActivity {
 
 
 
-    private void load2(final int i) {
+     void load2(final int i) {
         Request request = new Request.Builder()
                 .url(ENDPOINT[i])
                 .build();
@@ -122,7 +179,7 @@ public class TableActivity extends AppCompatActivity {
         }
     };
 
-    private void parseResponse(String body,int i) {
+     void parseResponse(String body,int i) {
         try {
             JSONObject jsonObject = new JSONObject(body);
             JSONObject coinObject = jsonObject.getJSONObject("data");
@@ -211,57 +268,45 @@ public class TableActivity extends AppCompatActivity {
         temp2 = String.format("%.2f",temp);
         t[1].setText(temp2+"$");
         t[2].setText(load("BTC24")+"%");
+        if(t[2].getText().charAt(0) == '-') t[2].setTextColor(Color.parseColor("#ed2432"));
+        else t[2].setTextColor(Color.parseColor("#3776ea"));
 
         temp = Double.parseDouble(load("BCHp"));
         temp2 = String.format("%.2f",temp);
         t[3].setText(temp2+"$");
         t[4].setText(load("BCH24")+"%");
+        if(t[4].getText().charAt(0) == '-') t[4].setTextColor(Color.parseColor("#ed2432"));
+        else t[4].setTextColor(Color.parseColor("#3776ea"));
 
         temp = Double.parseDouble(load("ETHp"));
         temp2 = String.format("%.2f",temp);
         t[5].setText(temp2+"$");
         t[6].setText(load("ETH24")+"%");
+        if(t[6].getText().charAt(0) == '-') t[6].setTextColor(Color.parseColor("#ed2432"));
+        else t[6].setTextColor(Color.parseColor("#3776ea"));
 
         temp = Double.parseDouble(load("ETCp"));
         temp2 = String.format("%.2f",temp);
         t[7].setText(temp2+"$");
         t[8].setText(load("ETC24")+"%");
+        if(t[8].getText().charAt(0) == '-') t[8].setTextColor(Color.parseColor("#ed2432"));
+        else t[8].setTextColor(Color.parseColor("#3776ea"));
 
         temp = Double.parseDouble(load("XRPp"));
         temp2 = String.format("%.2f",temp);
         t[9].setText(temp2+"$");
         t[10].setText(load("XRP24")+"%");
+        if(t[10].getText().charAt(0) == '-') t[10].setTextColor(Color.parseColor("#ed2432"));
+        else t[10].setTextColor(Color.parseColor("#3776ea"));
 
         temp = Double.parseDouble(load("LTCp"));
         temp2 = String.format("%.2f",temp);
         t[11].setText(temp2+"$");
         t[12].setText(load("LTC24")+"%");
+        if(t[12].getText().charAt(0) == '-') t[12].setTextColor(Color.parseColor("#ed2432"));
+        else t[12].setTextColor(Color.parseColor("#3776ea"));
     }
 
-    void onClick(View v){
-        Intent intent = new Intent(TableActivity.this, Exchange.class);
-        switch (v.getId()){
-            case R.id.table1:
-                intent.putExtra("i",1);
-                break;
-            case R.id.table2:
-                intent.putExtra("i",2);
-                break;
-            case R.id.table3:
-                intent.putExtra("i",3);
-                break;
-            case R.id.table4:
-                intent.putExtra("i",4);
-                break;
-            case R.id.table5:
-                intent.putExtra("i",5);
-                break;
-            case R.id.table6:
-                intent.putExtra("i",6);
-                break;
-        }
 
-        startActivity(intent);
-    }
 
 }

@@ -5,10 +5,10 @@ android {
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.frog.p.bitcoinvirtualinvestment"
-        minSdkVersion 23
+        minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 8
+        versionName "4.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -29,6 +29,9 @@ dependencies {
     implementation 'junit:junit:4.12'
 
     implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+    implementation 'com.google.firebase:firebase-core:16.0.1'
 
     implementation 'com.google.firebase:firebase-ads:16.0.1'
+
 }
+apply plugin: 'com.google.gms.google-services'

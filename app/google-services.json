@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "54275441772",
-    "firebase_url": "https://bitcoin-virtual-investment.firebaseio.com",
-    "project_id": "bitcoin-virtual-investment",
-    "storage_bucket": "bitcoin-virtual-investment.appspot.com"
+    "project_number": "660887909234",
+    "firebase_url": "https://bitcoinvi.firebaseio.com",
+    "project_id": "bitcoinvi",
+    "storage_bucket": "bitcoinvi.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:54275441772:android:398cbd9a402571ae",
+        "mobilesdk_app_id": "1:660887909234:android:5abc220903c911dd",
         "android_client_info": {
-          "package_name": "com.example.administrator.bitcoinvirtualinvestment"
+          "package_name": "com.frog.p.bitcoinvirtualinvestment"
         }
       },
       "oauth_client": [
         {
-          "client_id": "54275441772-ad6bgcis1auugp02jufgbqpistcvv9up.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.administrator.bitcoinvirtualinvestment",
-            "certificate_hash": "1807a43b7ca78d3cfca3b8b6206c98729a97c16d"
-          }
-        },
-        {
-          "client_id": "54275441772-nit5g862e1g4oq6hv724utidl867msbv.apps.googleusercontent.com",
+          "client_id": "660887909234-l59hc39ib9n3ec9hjigmhvv8ghe6brc0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAvJcCQS_S_0A6-5FptTXzYRtY6JN-sQtc"
+          "current_key": "AIzaSyDuJOMoGHHYwt2nrlKG4DzCkaDeScgZfX4"
         }
       ],
       "services": {
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "54275441772-nit5g862e1g4oq6hv724utidl867msbv.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

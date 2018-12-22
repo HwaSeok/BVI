@@ -2,6 +2,8 @@ package com.frog.p.bitcoinvirtualinvestment;
 
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -27,6 +29,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AdView mAdView;
 
+    public static final String[] ENDPOINT = new String[6];
+    private OkHttpClient okHttpClient = new OkHttpClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +71,14 @@ public class MainActivity extends AppCompatActivity {
         t21 = (TextView)findViewById(R.id.textView21);
         e = (EditText)findViewById(R.id.editText);
 
-        MobileAds.initialize(this, "ca-app-pub-");
+        ENDPOINT[0] = "https://api.coinhills.com/v1/cspa/btc/";
+        ENDPOINT[1] = "https://api.coinhills.com/v1/cspa/bch/";
+        ENDPOINT[2] = "https://api.coinhills.com/v1/cspa/eth/";
+        ENDPOINT[3] = "https://api.coinhills.com/v1/cspa/etc/";
+        ENDPOINT[4] = "https://api.coinhills.com/v1/cspa/xrp/";
+        ENDPOINT[5] = "https://api.coinhills.com/v1/cspa/ltc/";
+
+        MobileAds.initialize(this, "ca-app-pub-6204403446551835~6107468962");
 
         mAdView = (AdView)findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -85,7 +102,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        for(int i=0; i<6; i++){
+            load2(i);
+        }
+
         recentview();
+
 
 
         Button button2=(Button)findViewById(R.id.button2);
@@ -181,7 +203,11 @@ public class MainActivity extends AppCompatActivity {
         money4 = String.format("%.2f",nowmoney);
         percent2 = String.format("%.2f",percent);
 
+        if(nowmoney<0) t20.setTextColor(Color.parseColor("#ed2432"));
+        else t20.setTextColor(Color.parseColor("#3776ea"));
 
+        if(percent<0) t21.setTextColor(Color.parseColor("#ed2432"));
+        else t21.setTextColor(Color.parseColor("#3776ea"));
 
         t2.setText(money2+" $");
         t4.setText(load("BTC"));
@@ -207,6 +233,83 @@ public class MainActivity extends AppCompatActivity {
         ltc = Double.parseDouble(load("LTC")) * Double.parseDouble(load("LTCp"));
         result = btc + bch + eth + etc + xrp + ltc + money;
         save("moneyall",result);
+    }
+
+    void load2(final int i) {
+        Request request = new Request.Builder()
+                .url(ENDPOINT[i])
+                .build();
+
+
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Toast.makeText(MainActivity.this, "Error during loading : "
+                        + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onResponse(Call call, final Response response)
+                    throws IOException {
+                final String body = response.body().string();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        parseResponse(body,i);
+
+                    }
+                });
+            }
+        });
+
+    }
+
+    void parseResponse(String body,int i) {
+        try {
+            JSONObject jsonObject = new JSONObject(body);
+            JSONObject coinObject = jsonObject.getJSONObject("data");
+            switch (i){
+                case 0:
+                    JSONObject bObject = coinObject.getJSONObject("CSPA:BTC");
+                    save("BTCp",bObject.getDouble("cspa"));
+                    save("BTC24",bObject.getDouble("cspa_change_24h_pct"));
+                    break;
+
+                case 1:
+                    JSONObject b2Object = coinObject.getJSONObject("CSPA:BCH");
+                    save("BCHp",b2Object.getDouble("cspa"));
+                    save("BCH24",b2Object.getDouble("cspa_change_24h_pct"));
+                    break;
+
+                case 2:
+                    JSONObject eObject = coinObject.getJSONObject("CSPA:ETH");
+                    save("ETHp",eObject.getDouble("cspa"));
+                    save("ETH24",eObject.getDouble("cspa_change_24h_pct"));
+                    break;
+
+                case 3:
+                    JSONObject e2Object = coinObject.getJSONObject("CSPA:ETC");
+                    save("ETCp",e2Object.getDouble("cspa"));
+                    save("ETC24",e2Object.getDouble("cspa_change_24h_pct"));
+                    break;
+
+                case 4:
+                    JSONObject xObject = coinObject.getJSONObject("CSPA:XRP");
+                    save("XRPp",xObject.getDouble("cspa"));
+                    save("XRP24",xObject.getDouble("cspa_change_24h_pct"));
+                    break;
+
+                case 5:
+                    JSONObject lObject = coinObject.getJSONObject("CSPA:LTC");
+                    save("LTCp",lObject.getDouble("cspa"));
+                    save("LTC24",lObject.getDouble("cspa_change_24h_pct"));
+                    break;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

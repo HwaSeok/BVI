@@ -2,32 +2,32 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/c"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context="com.frog.p.bitcoinvirtualinvestment.MainActivity">
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-">
-    </com.google.android.gms.ads.AdView>
+        android:layout_centerHorizontal="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-6204403446551835/7515262862"></com.google.android.gms.ads.AdView>
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/actionbarT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_marginRight="5pt"
-        android:scrollbars="horizontal"
-        app:theme="@style/Base.Theme.AppCompat.CompactMenu"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_marginRight="5pt"
+        android:minHeight="?attr/actionBarSize"
+        android:scrollbars="horizontal"
+        app:theme="@style/Base.Theme.AppCompat.CompactMenu">
 
         <LinearLayout
             android:id="@+id/toolbarmenucontainer"
@@ -43,6 +43,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@android:color/black"
+                android:background="@drawable/custom_button"
                 android:text="자산정보" />
 
             <Button
@@ -50,6 +52,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@android:color/black"
+                android:background="@drawable/custom_button"
                 android:text="비트코인 거래" />
 
         </LinearLayout>
@@ -61,13 +65,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/actionbarT"
+        android:background="@drawable/textlines"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="9">
+            android:background="@drawable/textlines"
+            android:weightSum="9"
+            >
 
             <TextView
                 android:id="@+id/textView1"
@@ -76,7 +83,10 @@
                 android:layout_margin="2pt"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="현금" />
+                android:text="현금"
+
+                android:textColor="@android:color/black"
+                />
 
             <TextView
                 android:id="@+id/textView2"
@@ -85,18 +95,23 @@
                 android:layout_margin="2pt"
                 android:layout_weight="8"
                 android:gravity="right"
+                android:textColor="@android:color/black"
                 android:text="10000$" />
         </LinearLayout>
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2pt">
+            android:layout_margin="2pt"
+
+            >
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="6">
+                android:weightSum="6"
+
+                >
 
                 <TextView
                     android:id="@+id/textView3"
@@ -104,6 +119,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingLeft="7pt"
+                    android:textColor="@android:color/black"
+
                     android:text="BTC" />
 
                 <TextView
@@ -112,6 +129,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="right"
+                    android:textColor="@android:color/black"
                     android:text="12" />
 
                 <TextView
@@ -120,6 +138,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
+                    android:textColor="@android:color/black"
                     android:text="BCH" />
 
                 <TextView
@@ -128,6 +147,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="right"
+                    android:textColor="@android:color/black"
                     android:text="12" />
 
             </TableRow>
@@ -143,6 +163,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingLeft="7pt"
+                    android:textColor="@android:color/black"
                     android:text="ETH" />
 
                 <TextView
@@ -151,6 +172,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="right"
+                    android:textColor="@android:color/black"
                     android:text="12" />
 
                 <TextView
@@ -159,6 +181,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
+                    android:textColor="@android:color/black"
                     android:text="ETC" />
 
                 <TextView
@@ -167,6 +190,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="right"
+                    android:textColor="@android:color/black"
                     android:text="12" />
 
             </TableRow>
@@ -182,6 +206,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingLeft="7pt"
+                    android:textColor="@android:color/black"
                     android:text="XRP" />
 
                 <TextView
@@ -190,6 +215,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="right"
+                    android:textColor="@android:color/black"
                     android:text="12" />
 
                 <TextView
@@ -198,6 +224,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
+                    android:textColor="@android:color/black"
                     android:text="LTC" />
 
                 <TextView
@@ -206,6 +233,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="right"
+                    android:textColor="@android:color/black"
                     android:text="12" />
 
             </TableRow>
@@ -216,6 +244,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:background="@drawable/textlines"
             android:weightSum="9">
 
             <TextView
@@ -225,6 +254,7 @@
                 android:layout_margin="2pt"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textColor="@android:color/black"
                 android:text="총 자산" />
 
             <TextView
@@ -234,6 +264,7 @@
                 android:layout_margin="2pt"
                 android:layout_weight="8"
                 android:gravity="right"
+                android:textColor="@android:color/black"
                 android:text="10000$" />
         </LinearLayout>
 
@@ -244,6 +275,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/table"
         android:layout_marginTop="30pt"
+        android:background="@drawable/textlines"
         android:orientation="vertical">
 
         <TextView
@@ -252,41 +284,46 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="총 자산 수익률"
+            android:textColor="@android:color/black"
             android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <TextView
                 android:id="@+id/textView20"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="24pt"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="20000$"
-                android:textSize="24sp" />
+                android:textColor="@android:color/black"
+                android:textSize="28sp" />
 
             <TextView
                 android:id="@+id/textView21"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="24pt"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="200%"
-                android:textSize="24sp" />
+                android:textColor="@android:color/black"
+                android:textSize="28sp" />
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edit"
-        android:orientation="horizontal"
         android:layout_above="@id/adView"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:background="@drawable/textlines"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/editText"
@@ -294,13 +331,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="numberSigned" />
+            android:inputType="numberSigned"
+
+            android:textColor="@android:color/black" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@android:color/black"
+            android:background="@drawable/custom_button"
             android:text="초기자금 설정" />
     </LinearLayout>
 
@@ -311,7 +352,8 @@
         android:layout_above="@id/edit"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="2pt"
-        android:text="*비트코인 거래창을 눌러야 현재시세가 적용됩니다." />
+        android:textColor="@android:color/black"
+        android:text="" />
 
 
 </RelativeLayout>
