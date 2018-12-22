@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         ENDPOINT[4] = "https://api.coinhills.com/v1/cspa/xrp/";
         ENDPOINT[5] = "https://api.coinhills.com/v1/cspa/ltc/";
 
-        MobileAds.initialize(this, "ca-app-pub-6204403446551835~6107468962");
+        MobileAds.initialize(this, "ca-app-pub-");
 
         mAdView = (AdView)findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
