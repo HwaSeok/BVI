@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-6204403446551835/7515262862">
+        ads:adUnitId="ca-app-pub-">
     </com.google.android.gms.ads.AdView>
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
